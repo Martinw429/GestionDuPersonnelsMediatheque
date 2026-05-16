@@ -46,35 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="absence.cs" />
-    <Compile Include="Connexion.cs">
+    <Compile Include="Model\absence.cs" />
+    <Compile Include="View\fmrConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Connexion.Designer.cs">
-      <DependentUpon>Connexion.cs</DependentUpon>
+    <Compile Include="View\fmrConnexion.Designer.cs">
+      <DependentUpon>fmrConnexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmrAbsence.cs">
+    <Compile Include="View\fmrAbsence.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmrAbsence.Designer.cs">
+    <Compile Include="View\fmrAbsence.Designer.cs">
       <DependentUpon>fmrAbsence.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmrGestionPersonnels.cs">
+    <Compile Include="View\fmrGestionPersonnels.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmrGestionPersonnels.Designer.cs">
+    <Compile Include="View\fmrGestionPersonnels.Designer.cs">
       <DependentUpon>fmrGestionPersonnels.cs</DependentUpon>
     </Compile>
-    <Compile Include="personnel.cs" />
+    <Compile Include="Model\personnel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Connexion.resx">
-      <DependentUpon>Connexion.cs</DependentUpon>
+    <EmbeddedResource Include="View\fmrConnexion.resx">
+      <DependentUpon>fmrConnexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmrAbsence.resx">
+    <EmbeddedResource Include="View\fmrAbsence.resx">
       <DependentUpon>fmrAbsence.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmrGestionPersonnels.resx">
+    <EmbeddedResource Include="View\fmrGestionPersonnels.resx">
       <DependentUpon>fmrGestionPersonnels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -114,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RETOUR %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
