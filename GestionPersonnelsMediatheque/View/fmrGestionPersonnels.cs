@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionPersonnelsMediatheque
 {
+    /// <summary>
+    /// Interface de gestion des personnels de la médiathèque.
+    /// </summary>
     public partial class fmrGestionPersonnels : Form
     {
         public fmrGestionPersonnels()

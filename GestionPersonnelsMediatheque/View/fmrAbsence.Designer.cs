@@ -96,6 +96,7 @@
             this.Controls.Add(this.lstAbsence);
             this.Name = "fmrAbsence";
             this.Text = "Absence";
+            this.Load += new System.EventHandler(this.fmrAbsence_Load);
             this.ResumeLayout(false);
 
         }

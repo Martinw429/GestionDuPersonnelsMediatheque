@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionPersonnelsMediatheque
 {
+    /// <summary>
+    /// Interface de connexion pour le responsable de la médiathèque.
+    /// </summary>
     public partial class fmrConnexion : Form
     {
         public fmrConnexion()
