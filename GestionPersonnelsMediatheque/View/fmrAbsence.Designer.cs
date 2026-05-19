@@ -53,6 +53,7 @@
             this.btnRetour.Size = new System.Drawing.Size(120, 120);
             this.btnRetour.TabIndex = 4;
             this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // btnModifierAbsence
             // 

@@ -24,5 +24,16 @@ namespace GestionPersonnelsMediatheque
         {
 
         }
+        /// <summary>
+        /// Le bouton "retour" permet de revenir à la fenêtre de gestion du personnel de la médiathèque.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            fmrGestionPersonnels gestionPersonnels = new fmrGestionPersonnels();
+            gestionPersonnels.Show();
+            this.Hide();
+        }
     }
 }

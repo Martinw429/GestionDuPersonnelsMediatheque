@@ -53,6 +53,7 @@
             this.btnAbsencePerso.Size = new System.Drawing.Size(120, 120);
             this.btnAbsencePerso.TabIndex = 4;
             this.btnAbsencePerso.UseVisualStyleBackColor = true;
+            this.btnAbsencePerso.Click += new System.EventHandler(this.btnAbsencePerso_Click);
             // 
             // btnModifierPerso
             // 

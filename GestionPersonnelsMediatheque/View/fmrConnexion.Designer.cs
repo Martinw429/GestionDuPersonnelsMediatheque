@@ -76,6 +76,8 @@
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "se connecter";
             this.btnConnexion.UseVisualStyleBackColor = false;
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
+            this.btnConnexion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnConnexion_KeyDown);
             // 
             // fmrConnexion
             // 
@@ -89,6 +91,7 @@
             this.Controls.Add(this.label1);
             this.Name = "fmrConnexion";
             this.Text = "Authentification";
+            this.Load += new System.EventHandler(this.fmrConnexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

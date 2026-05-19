@@ -19,5 +19,17 @@ namespace GestionPersonnelsMediatheque
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Le bouton "afficher les absences du personnel" permet d'ouvrir une nouvelle fenêtre qui affiche les absences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAbsencePerso_Click(object sender, EventArgs e)
+        {
+            fmrAbsence absence = new fmrAbsence();
+            absence.Show();
+            this.Hide();
+        }
     }
 }
