@@ -2,6 +2,8 @@
 using Serilog;
 using System;
 using System.Configuration;
+using System.Windows.Forms;
+
 
 namespace GestionPersonnelsMediatheque.dal
 {
@@ -42,8 +44,10 @@ namespace GestionPersonnelsMediatheque.dal
             }
             catch (Exception e)
             {
+                /**
                 Log.Fatal("Access.Access catch connectionString={0} erreur={1}", connectionString, e.Message);
-                Environment.Exit(0);
+                Environment.Exit(0);*/
+                MessageBox.Show(e.Message);
             }
         }
 

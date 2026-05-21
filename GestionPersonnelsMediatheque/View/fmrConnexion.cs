@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionPersonnelsMediatheque.dal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,26 +27,36 @@ namespace GestionPersonnelsMediatheque
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            //Récupérer les informations de connexion
-            string username = txtIdentifiant.Text;
-            string password = txtMdp.Text;
-            //Vérifier les informations de connexion
-            if (username == "admin" && password == "admin123") //modifier pour gérer la base de données
+            try
             {
-                //Connexion réussie, ouvrir GestionPersonnel
-                fmrGestionPersonnels gestionPersonnels = new fmrGestionPersonnels();
-                gestionPersonnels.Show();
-                this.Hide();
-            }
-            else
+                //Récupérer les informations de connexion 
+
+                string username = txtIdentifiant.Text;
+                string password = txtMdp.Text;
+
+                //Utiliser la classe ResponsableAcess pour vérifier les informations de connexion
+                ResponsableAccess access = new ResponsableAccess();
+
+                bool connexionOk = access.VerifierConnexion(username, password);
+
+                if (connexionOk)
+                {
+                    // si connexion réussie, ouvrir GestionPersonnel
+                    fmrGestionPersonnels gestionPersonnels = new fmrGestionPersonnels();
+                    gestionPersonnels.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show(" Mot de passe ou identifiant incorrect");
+                }
+            }catch (Exception ex)
             {
-                //Connexion échouée, afficher un message d'erreur
-                MessageBox.Show("Identifiant ou mot de passe incorrect.");
-                txtIdentifiant.Clear();
-                txtIdentifiant.Focus();
-                txtMdp.Clear();
+                MessageBox.Show("Une erreur s'est produite lors de la connexion : " + ex.Message);
             }
-        }
+            }
+
 
         /// <summary>
         /// Le focus est mis sur le champ d'identifiant lors du chargement de l'interface de connexion.

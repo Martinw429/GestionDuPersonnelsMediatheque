@@ -9,7 +9,8 @@ namespace GestionPersonnelsMediatheque.Model
     /// <summary>
     /// classe représentant les motifs d'absence du personnel de la médiathèque.
     /// </summary>
-    internal class motif
+    public class Motif
     {
+        public int idMotif { get; set; }
     }
 }

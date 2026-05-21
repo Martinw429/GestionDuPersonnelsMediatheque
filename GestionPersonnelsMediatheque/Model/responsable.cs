@@ -9,7 +9,10 @@ namespace GestionPersonnelsMediatheque.Model
     /// <summary>
     /// classe représentant le responsable de la médiathèque.
     /// </summary>
-    internal class responsable
+    public class Responsable
     {
+        public string login { get; set; }
+        public string pwd { get; set; }
+
     }
 }

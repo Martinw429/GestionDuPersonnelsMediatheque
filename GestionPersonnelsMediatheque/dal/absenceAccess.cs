@@ -12,7 +12,7 @@ namespace GestionPersonnelsMediatheque.dal
     /// <summary>
     /// classe d'accès aux données au gestionnaire de base de données.
     /// </summary>
-    internal class absenceAccess
+    internal class AbsenceAccess
     {
     }
 }

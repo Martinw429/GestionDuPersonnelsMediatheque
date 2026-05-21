@@ -9,7 +9,7 @@ namespace GestionPersonnelsMediatheque.dal
     /// <summary>
     /// Classe d'accès aux données pour la gestion des personnels.
     /// </summary>
-    internal class personnelAccess
+    internal class PersonnelAccess
     {
     }
 }
