@@ -50,6 +50,9 @@ namespace GestionPersonnelsMediatheque
                 else
                 {
                     MessageBox.Show(" Mot de passe ou identifiant incorrect");
+                    txtIdentifiant.Clear();
+                    txtMdp.Clear();
+                    txtIdentifiant.Focus();
                 }
             }catch (Exception ex)
             {

@@ -6,13 +6,43 @@ using System.Threading.Tasks;
 
 namespace GestionPersonnelsMediatheque
 {
-    internal class Personnel
+    public class Personnel
     {
-        public int idPersonnel { get; set; }
+        /// <summary>
+        /// Valorise les propriétés
+        /// </summary>
+        /// <param name="idpersonnel"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="tel"></param>
+        /// <param name="mail"></param>
+        /// <param name="idservice"></param>
+        /// 
+
+        public Personnel(int idpersonnel, string nom, string prenom, string tel, string mail, int idservice)
+        {
+            this.idpersonnel = idpersonnel;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.tel = tel;
+            this.mail = mail;
+            this.idservice = idservice;
+        }
+
+        public Personnel()
+        {
+            //Constructeur par défaut pour permettre la création d'instances de Personnel sans fournir de paramètres.
+        }
+
+
+        public int idpersonnel { get; set; }
         public string nom { get; set; }
         public string prenom { get; set; }
-        public int tel { get; set; }
+        public string tel { get; set; }
         public string mail { get; set; }
-        public int idService { get; set; }
+        public int idservice { get; set; }
+
+
     }
+   
 }

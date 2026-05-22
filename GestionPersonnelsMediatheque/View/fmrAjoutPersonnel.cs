@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionPersonnelsMediatheque.View
 {
-    public partial class AjoutPersonnel : Form
+    public partial class fmrAjoutEtModif : Form
     {
-        public AjoutPersonnel()
+        public fmrAjoutEtModif()
         {
             InitializeComponent();
         }

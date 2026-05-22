@@ -23,7 +23,6 @@ namespace GestionPersonnelsMediatheque.dal
 
         public bool VerifierConnexion(string username, string password)
         {
-            //TODO : Implémenter la logique de vérification des informations de connexion en utilisant une base de données.
             bool authentificationReussie = false;
 
             //envoie de la requête SQL pour vérifier les informations de connexion
