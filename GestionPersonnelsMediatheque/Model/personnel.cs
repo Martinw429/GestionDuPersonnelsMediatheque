@@ -42,7 +42,27 @@ namespace GestionPersonnelsMediatheque
         public string mail { get; set; }
         public int idservice { get; set; }
 
+        public string nomService
+        {
+            get
+            {
+                switch (idservice)
+                {
+                    case 1:
+                        return "administratif";
+
+                    case 2:
+                        return "médiation culturelle";
+
+                    case 3:
+                        return "prêt";
+
+                    default:
+                        return "inconnu";
+                }
+            }
+        }
 
     }
-   
+
 }

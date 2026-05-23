@@ -122,11 +122,11 @@
     <Compile Include="Model\Motif.cs" />
     <Compile Include="Model\Responsable.cs" />
     <Compile Include="Model\Service.cs" />
-    <Compile Include="View\fmrAjoutPersonnel.cs">
+    <Compile Include="View\fmrAjoutEtModif.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fmrAjoutPersonnel.Designer.cs">
-      <DependentUpon>fmrAjoutPersonnel.cs</DependentUpon>
+    <Compile Include="View\fmrAjoutEtModif.Designer.cs">
+      <DependentUpon>fmrAjoutEtModif.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fmrConnexion.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <Compile Include="Model\Personnel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\fmrAjoutPersonnel.resx">
-      <DependentUpon>fmrAjoutPersonnel.cs</DependentUpon>
+    <EmbeddedResource Include="View\fmrAjoutEtModif.resx">
+      <DependentUpon>fmrAjoutEtModif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fmrConnexion.resx">
       <DependentUpon>fmrConnexion.cs</DependentUpon>

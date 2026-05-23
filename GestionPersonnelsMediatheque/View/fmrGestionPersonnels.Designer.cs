@@ -56,6 +56,7 @@
             this.btnModifierPerso.Size = new System.Drawing.Size(120, 120);
             this.btnModifierPerso.TabIndex = 3;
             this.btnModifierPerso.UseVisualStyleBackColor = true;
+            this.btnModifierPerso.Click += new System.EventHandler(this.btnModifierPerso_Click);
             // 
             // btnSupprimerPerso
             // 
@@ -76,6 +77,7 @@
             this.btnAjouterPerso.Size = new System.Drawing.Size(120, 120);
             this.btnAjouterPerso.TabIndex = 1;
             this.btnAjouterPerso.UseVisualStyleBackColor = true;
+            this.btnAjouterPerso.Click += new System.EventHandler(this.btnAjouterPerso_Click);
             // 
             // dgvPersonnel
             // 

@@ -16,5 +16,12 @@ namespace GestionPersonnelsMediatheque.View
         {
             InitializeComponent();
         }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            fmrGestionPersonnels gestionPersonnels = new fmrGestionPersonnels();
+            gestionPersonnels.Show();
+            this.Hide();
+        }
     }
 }
