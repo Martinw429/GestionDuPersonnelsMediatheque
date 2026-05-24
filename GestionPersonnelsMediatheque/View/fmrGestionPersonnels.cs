@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -77,8 +78,6 @@ namespace GestionPersonnelsMediatheque
             fmrAjoutEtModif ajout = new fmrAjoutEtModif();
             ajout.Show();
             this.Hide();
-
-            //
         }
 
         private void btnModifierPerso_Click(object sender, EventArgs e)
@@ -112,6 +111,58 @@ namespace GestionPersonnelsMediatheque
 
 
         }
+        /// <summary>
+        /// Bouton "supprimer un personnel" permet de supprimer un personnel de la médiathèque après confirmation de l'utilisateur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimerPerso_Click(object sender, EventArgs e)
+        {
+            if (dgvPersonnel.SelectedRows.Count > 0)// Vérifier si une ligne est sélectionnée dans le DataGridView avant de tenter de supprimer un personnel.
+            {
+                Personnel personnel = (Personnel)dgvPersonnel.CurrentRow.DataBoundItem;
+                DialogResult result = MessageBox.Show("Êtes-vous sûr de vouloir supprimer " + personnel.nom + " " + personnel.prenom + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                   // Si l'utilisateur confirme la suppression, appeler la méthode de suppression du personnel dans la base de données et rafraîchir le DataGridView pour refléter les changements.
+                    PersonnelAccess access = new PersonnelAccess();
+                    access.GetLesPersonnels().Remove(personnel);
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée.");
+            }
+
+        }
+
+        /// <summary>
+        /// Demande de suppression d'un développeur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+      /*  private void BtnDemandeSupprDev_Click(object sender, EventArgs e)
+        {
+            if (dgvDeveloppeurs.SelectedRows.Count > 0)
+            {
+                Developpeur developpeur = (Developpeur)bdgDeveloppeurs.List[bdgDeveloppeurs.Position];
+                if (MessageBox.Show("Voulez-vous vraiment supprimer " + developpeur.Nom + " " + developpeur.Prenom + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    controller.DelDeveloppeur(developpeur);
+                    RemplirListeDeveloppeurs();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée.", titreFenetreInformation);
+            }
+        }*/
+
+
+
+
+
 
 
         /// <summary>

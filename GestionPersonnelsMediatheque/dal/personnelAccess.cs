@@ -18,7 +18,7 @@ namespace GestionPersonnelsMediatheque.dal
         /// <return> une liste de personnel </return>
 
         public PersonnelAccess()
-        { 
+        {
             // Le constructeur de la classe PersonnelAccess est utilisé pour initialiser les données nécessaires à la gestion des personnels de la médiathèque.
         }
 
@@ -27,7 +27,7 @@ namespace GestionPersonnelsMediatheque.dal
 
         public List<Personnel> GetLesPersonnels()
         {
-            
+
             // La liste est initialisée pour stocker les objets Personnel qui seront créés à partir des enregistrements de la base de données.
             List<Personnel> personnel = new List<Personnel>();
 
@@ -55,8 +55,9 @@ namespace GestionPersonnelsMediatheque.dal
                         personnel.Add(p);
                     }
 
-                }    
-            }catch (Exception ex)
+                }
+            }
+            catch (Exception ex)
             {
                 Log.Error("Erreur lors de la récupération des personnels : {Message}", ex.Message);
                 MessageBox.Show("Une erreur est survenue lors de la récupération des personnels. Veuillez réessayer.");
@@ -65,6 +66,56 @@ namespace GestionPersonnelsMediatheque.dal
 
         }
 
-        
+        //Méthode pour ajouter un personnel à la base de données en utilisant une requête SQL d'insertion. 
+
+        public void AjouterPersonnel(Personnel p)
+        {
+            string reqSQL = "INSERT INTO personnel (nom, prenom, tel, mail, idservice) VALUES (@nom, @prenom, @tel, @mail, @idservice)";
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                        {"@nom", p.nom },
+                        {"@prenom", p.prenom },
+                        {"@tel", p.tel },
+                        {"@mail", p.mail },
+                        {"@idservice", p.idservice }
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de l'ajout du personnel : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de l'ajout du personnel. Veuillez réessayer.");
+            }
+        }
+
+
+
+        //Méthode pour modifier les informations d'un personnel existant dans la base de données en utilisant une requête SQL de mise à jour.
+
+        public void ModifierPersonnel(Personnel p)
+        {
+            string reqSQL = "UPDATE personnel SET nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice WHERE idpersonnel = @idpersonnel";
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                        {"@nom", p.nom },
+                        {"@prenom", p.prenom },
+                        {"@tel", p.tel },
+                        {"@mail", p.mail },
+                        {"@idservice", p.idservice },
+                        {"@idpersonnel", p.idpersonnel }
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de la modification du personnel : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de la modification du personnel. Veuillez réessayer.");
+            }
+
+        }
     }
 }

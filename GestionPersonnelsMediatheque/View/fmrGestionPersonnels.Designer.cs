@@ -67,6 +67,7 @@
             this.btnSupprimerPerso.Size = new System.Drawing.Size(120, 120);
             this.btnSupprimerPerso.TabIndex = 2;
             this.btnSupprimerPerso.UseVisualStyleBackColor = true;
+            this.btnSupprimerPerso.Click += new System.EventHandler(this.btnSupprimerPerso_Click);
             // 
             // btnAjouterPerso
             // 
@@ -89,14 +90,14 @@
             this.dgvPersonnel.ReadOnly = true;
             this.dgvPersonnel.RowHeadersWidth = 62;
             this.dgvPersonnel.RowTemplate.Height = 28;
-            this.dgvPersonnel.Size = new System.Drawing.Size(803, 482);
+            this.dgvPersonnel.Size = new System.Drawing.Size(803, 498);
             this.dgvPersonnel.TabIndex = 5;
             // 
             // fmrGestionPersonnels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 521);
+            this.ClientSize = new System.Drawing.Size(953, 526);
             this.Controls.Add(this.dgvPersonnel);
             this.Controls.Add(this.btnAbsencePerso);
             this.Controls.Add(this.btnModifierPerso);
