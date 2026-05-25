@@ -14,6 +14,31 @@ namespace GestionPersonnelsMediatheque
         public int idPersonnel { get; set; }
         public string dateDebut { get; set; }
         public string dateFin { get; set; }
-        public int motif { get; set; }
+        public int  idMotif { get; set; }
+
+    public string nomMotif
+        {
+            get
+            {
+                switch (idMotif)
+                {
+                    case 1:
+                        return "vacances";
+
+                    case 2:
+                        return "maladie";
+
+                    case 3:
+                        return "motif familial";
+
+                    case 4:
+                        return "congé parental";
+
+                    default:
+                        return "inconnu";
+                }
+            }
+        }
     }
 }
+    

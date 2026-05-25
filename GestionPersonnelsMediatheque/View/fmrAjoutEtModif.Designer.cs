@@ -1,6 +1,6 @@
 ﻿namespace GestionPersonnelsMediatheque.View
 {
-    partial class fmrAjoutEtModif
+    partial class fmrAjout
     {
         /// <summary>
         /// Required designer variable.

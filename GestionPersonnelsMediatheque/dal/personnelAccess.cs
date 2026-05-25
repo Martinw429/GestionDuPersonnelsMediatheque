@@ -8,6 +8,7 @@ using GestionPersonnelsMediatheque.Model;
 using System.Windows.Forms;
 
 
+
 namespace GestionPersonnelsMediatheque.dal
 {
     public class PersonnelAccess
@@ -66,7 +67,8 @@ namespace GestionPersonnelsMediatheque.dal
 
         }
 
-        //Méthode pour ajouter un personnel à la base de données en utilisant une requête SQL d'insertion. 
+        //Méthode pour ajouter un personnel à la base de données en utilisant une requête SQL d'insertion.
+        //les id des personnels se font suite , après l'ajout d'un personnel , le prochain id sera celui du dernier personnel ajouté +1
 
         public void AjouterPersonnel(Personnel p)
         {
@@ -80,7 +82,7 @@ namespace GestionPersonnelsMediatheque.dal
                         {"@prenom", p.prenom },
                         {"@tel", p.tel },
                         {"@mail", p.mail },
-                        {"@idservice", p.idservice }
+                        {"@idservice", p.idservice } 
                     });
             }
             catch (Exception ex)
@@ -116,6 +118,26 @@ namespace GestionPersonnelsMediatheque.dal
                 MessageBox.Show("Une erreur est survenue lors de la modification du personnel. Veuillez réessayer.");
             }
 
+        }
+
+        //Méthode pour supprimer un personnel de la base de données en utilisant une requête SQL de suppression.
+
+        public void SupprimerPersonnel(int idpersonnel)
+        {
+            string reqSQL = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel";
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                        {"@idpersonnel", idpersonnel }
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de la suppression du personnel : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de la suppression du personnel. Veuillez réessayer.");
+            }
         }
     }
 }

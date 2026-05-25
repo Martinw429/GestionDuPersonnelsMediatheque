@@ -115,6 +115,6 @@
         private System.Windows.Forms.Button btnSupprimerPerso;
         private System.Windows.Forms.Button btnModifierPerso;
         private System.Windows.Forms.Button btnAbsencePerso;
-        private System.Windows.Forms.DataGridView dgvPersonnel;
+        public System.Windows.Forms.DataGridView dgvPersonnel;
     }
 }

@@ -56,6 +56,7 @@
             this.btnModifierAbsence.Size = new System.Drawing.Size(120, 120);
             this.btnModifierAbsence.TabIndex = 3;
             this.btnModifierAbsence.UseVisualStyleBackColor = true;
+            this.btnModifierAbsence.Click += new System.EventHandler(this.btnModifierAbsence_Click);
             // 
             // btnSupprimerAbsence
             // 
@@ -66,6 +67,7 @@
             this.btnSupprimerAbsence.Size = new System.Drawing.Size(120, 120);
             this.btnSupprimerAbsence.TabIndex = 2;
             this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprimerAbsence.Click += new System.EventHandler(this.btnSupprimerAbsence_Click);
             // 
             // btnAjouterAbsence
             // 
@@ -76,6 +78,7 @@
             this.btnAjouterAbsence.Size = new System.Drawing.Size(120, 120);
             this.btnAjouterAbsence.TabIndex = 1;
             this.btnAjouterAbsence.UseVisualStyleBackColor = true;
+            this.btnAjouterAbsence.Click += new System.EventHandler(this.btnAjouterAbsence_Click);
             // 
             // dgvAbsence
             // 

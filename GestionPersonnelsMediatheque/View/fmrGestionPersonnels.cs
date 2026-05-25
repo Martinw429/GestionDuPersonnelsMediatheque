@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GestionPersonnelsMediatheque
 {
     /// <summary>
@@ -57,14 +58,25 @@ namespace GestionPersonnelsMediatheque
 
         /// <summary>
         /// Le bouton "afficher les absences du personnel" permet d'ouvrir une nouvelle fenêtre qui affiche les absences
+        /// une ligne doit être sélectionnée dans le DataGridView pour pouvoir afficher les absences du personnel sélectionné. Lorsque l'utilisateur clique sur ce bouton, la fenêtre d'absence s'ouvre et affiche les absences du personnel sélectionné.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAbsencePerso_Click(object sender, EventArgs e)
         {
-            fmrAbsence absence = new fmrAbsence();
-            absence.Show();
-            this.Hide();
+            //si une ligne est sélectionnée dans le DataGridView, alors on peut afficher les absences du personnel sélectionné
+
+            if (dgvPersonnel.SelectedRows.Count > 0)
+            {
+                Personnel personnel = (Personnel)dgvPersonnel.CurrentRow.DataBoundItem;
+                fmrAbsence absence = new fmrAbsence();
+                absence.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée.");
+            }
         }
 
         /// <summary>
@@ -75,7 +87,7 @@ namespace GestionPersonnelsMediatheque
         private void btnAjouterPerso_Click(object sender, EventArgs e)
         {
             // Ouvrir une nouvelle fenêtre pour ajouter un nouveau personnel à la médiathèqe
-            fmrAjoutEtModif ajout = new fmrAjoutEtModif();
+            fmrAjout ajout = new fmrAjout();
             ajout.Show();
             this.Hide();
         }
@@ -87,21 +99,20 @@ namespace GestionPersonnelsMediatheque
             if (dgvPersonnel.SelectedRows.Count > 0)
             {
                 // Ouvrir une nouvelle fenêtre pour modifier les informations d'un personnel de la médiathèque que si un personnel est sélectionné dans le DataGridView
-                fmrAjoutEtModif modif = new fmrAjoutEtModif();
+                fmrModif modif = new fmrModif();
                 modif.Show();
                 this.Hide();
 
                 // Récupérer les informations du personnel sélectionné dans le DataGridView et les transmettre à la fenêtre de modification pour pré-remplir les champs de saisie.
                 Personnel personnel = (Personnel)dgvPersonnel.CurrentRow.DataBoundItem;
-                modif.txtNom.Text = personnel.nom;
-                modif.txtPrenom.Text = personnel.prenom;
-                modif.txtTel.Text = personnel.tel;
-                modif.txtMail.Text = personnel.mail;
-                modif.cboService.SelectedIndex = modif.cboService.FindStringExact(personnel.nomService);
+                modif.txtNomModif.Text = personnel.nom;
+                modif.txtPrenomModif.Text = personnel.prenom;
+                modif.txtTelModif.Text = personnel.tel;
+                modif.txtMailModif.Text = personnel.mail;
+                modif.cboServiceModif.SelectedIndex = modif.cboServiceModif.FindStringExact(personnel.nomService);
                 //modif.cboService.SelectedIndex = modif.cboService.FindStringExact(personnel.idservice.ToString());
 
-                // La méthode FindStringExact est utilisée pour trouver l'index de l'élément dans le ComboBox qui correspond à l'idservice du personnel sélectionné, afin de pré-sélectionner le service correspondant dans la fenêtre de modification.
-
+               //grpAjoutEtModif.Text = "Modifier un personnel";
 
             }
             else
@@ -124,9 +135,9 @@ namespace GestionPersonnelsMediatheque
                 DialogResult result = MessageBox.Show("Êtes-vous sûr de vouloir supprimer " + personnel.nom + " " + personnel.prenom + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                   // Si l'utilisateur confirme la suppression, appeler la méthode de suppression du personnel dans la base de données et rafraîchir le DataGridView pour refléter les changements.
+                   // Si l'utilisateur confirme la suppression, appeler la méthode de suppression du personnel dans la base de données et mettre à jour le DataGridView pour refléter les changements.
                     PersonnelAccess access = new PersonnelAccess();
-                    access.GetLesPersonnels().Remove(personnel);
+                    access.SupprimerPersonnel(personnel.idpersonnel);
                     LoadData();
                 }
             }
@@ -135,56 +146,7 @@ namespace GestionPersonnelsMediatheque
                 MessageBox.Show("Une ligne doit être sélectionnée.");
             }
 
-        }
+        }    
 
-        /// <summary>
-        /// Demande de suppression d'un développeur
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-      /*  private void BtnDemandeSupprDev_Click(object sender, EventArgs e)
-        {
-            if (dgvDeveloppeurs.SelectedRows.Count > 0)
-            {
-                Developpeur developpeur = (Developpeur)bdgDeveloppeurs.List[bdgDeveloppeurs.Position];
-                if (MessageBox.Show("Voulez-vous vraiment supprimer " + developpeur.Nom + " " + developpeur.Prenom + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    controller.DelDeveloppeur(developpeur);
-                    RemplirListeDeveloppeurs();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Une ligne doit être sélectionnée.", titreFenetreInformation);
-            }
-        }*/
-
-
-
-
-
-
-
-        /// <summary>
-        ///  Demande de modification d'un développeur
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /*private void BtnDemandeModifDev_Click(object sender, EventArgs e)
-        {
-            if (dgvDeveloppeurs.SelectedRows.Count > 0)
-            {
-                EnCourseModifDeveloppeur(true);
-                Developpeur developpeur = (Developpeur)bdgDeveloppeurs.List[bdgDeveloppeurs.Position];
-                txtNom.Text = developpeur.Nom;
-                txtPrenom.Text = developpeur.Prenom;
-                txtTel.Text = developpeur.Tel;
-                txtMail.Text = developpeur.Mail;
-                cboProfil.SelectedIndex = cboProfil.FindStringExact(developpeur.Profil.Nom);
-            }
-            else
-            {
-                MessageBox.Show("Une ligne doit être sélectionnée.", titreFenetreInformation);
-            }*/
     }
 }
