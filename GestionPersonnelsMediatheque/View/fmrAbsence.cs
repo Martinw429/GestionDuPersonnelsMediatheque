@@ -64,11 +64,15 @@ namespace GestionPersonnelsMediatheque
 
         private void btnAjouterAbsence_Click(object sender, EventArgs e)
         {
-
+            //ouvre la fenêtre pour ajouter absence 
+            fmrAjoutAbsence absence = new fmrAjoutAbsence();
+            absence.Show();
+            this.Hide();
         }
 
         private void btnSupprimerAbsence_Click(object sender, EventArgs e)
         {
+           
 
         }
 

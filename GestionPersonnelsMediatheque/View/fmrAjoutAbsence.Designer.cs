@@ -65,6 +65,7 @@
             this.btnEnregistrerAjoutAbsence.TabIndex = 13;
             this.btnEnregistrerAjoutAbsence.Text = "enregistrer";
             this.btnEnregistrerAjoutAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAjoutAbsence.Click += new System.EventHandler(this.btnEnregistrerAjoutAbsence_Click);
             // 
             // btnAnnulerAjoutAbsence
             // 
@@ -74,6 +75,7 @@
             this.btnAnnulerAjoutAbsence.TabIndex = 12;
             this.btnAnnulerAjoutAbsence.Text = "annuler";
             this.btnAnnulerAjoutAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulerAjoutAbsence.Click += new System.EventHandler(this.btnAnnulerAjoutAbsence_Click);
             // 
             // cboMotifAjoutAbsence
             // 
