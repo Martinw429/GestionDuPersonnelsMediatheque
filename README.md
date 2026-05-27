@@ -39,7 +39,8 @@ L'application démarre sur une vue c'est la structure classique des applications
 Les différents partie communique entres elle pour faire fonctionnée l'application, le package bddmanager et dal permette le bon fonctionnement de l'application 
 avec la communication à la base de donnée.
 ---
-
+Script SQL :
+-----
 
 
 
