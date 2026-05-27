@@ -137,7 +137,7 @@ namespace GestionPersonnelsMediatheque
                 {
                    // Si l'utilisateur confirme la suppression, appeler la méthode de suppression du personnel dans la base de données et mettre à jour le DataGridView pour refléter les changements.
                     PersonnelAccess access = new PersonnelAccess();
-                    access.SupprimerPersonnel(personnel.idpersonnel);
+                    access.SupprimerAbsence(personnel.idpersonnel);
                     LoadData();
                 }
             }

@@ -57,6 +57,70 @@ namespace GestionPersonnelsMediatheque.dal
             return absences;
         }
 
+        // ajouter absence (sans idPersonnel)
+
+        public void AjouterAbsence(Absence a)
+        {
+            string reqSQL = "INSERT INTO absence (idpersonnel, dateDebut, dateFin, idMotif) VALUES (@dateDebut, @dateFin, @idMotif)";
+
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                {  "@idpersonnel", a.idPersonnel  },
+                { "@dateDebut", a.dateDebut },
+                { "@dateFin", a.dateFin },
+                { "@idMotif", a.idMotif }
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de l'ajout de l'absence : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de l'ajout de l'absence. Veuillez réessayer.");
+            }
+        }
+
+        public void Absence(int idpersonnel)
+        {
+            string reqSQL = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel";
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                        {"@idpersonnel", idpersonnel }
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de la suppression du personnel : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de la suppression du personnel. Veuillez réessayer.");
+            }
+        }
+
+        public void ModifierAbsence(Absence p)
+        { 
+            string reqSQL = "UPDATE absence SET idpersonnel = @idpersonnel, datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif WHERE idpersonnel = @idpersonnel";
+            try
+            {
+                Access.GetInstance().Manager.ReqUpdate(reqSQL,
+                    new Dictionary<string, object>
+                    {
+                        {"@idpersonnel", p.idPersonnel },
+                        {"@datedebut", p.dateDebut },
+                        {"@datefin", p.dateFin },
+                        {"@idmotif", p.idMotif },
+                    });
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erreur lors de la modification du : {Message}", ex.Message);
+                MessageBox.Show("Une erreur est survenue lors de la modification du personnel. Veuillez réessayer.");
+            }
+
+        }
+
 
     }
 }

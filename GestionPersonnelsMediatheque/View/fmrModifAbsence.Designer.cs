@@ -65,6 +65,7 @@
             this.btnEnregistrerModifAbsence.TabIndex = 13;
             this.btnEnregistrerModifAbsence.Text = "enregistrer";
             this.btnEnregistrerModifAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregistrerModifAbsence.Click += new System.EventHandler(this.btnEnregistrerModifAbsence_Click);
             // 
             // btnAnnulerModifAbsence
             // 
@@ -149,11 +150,11 @@
         private System.Windows.Forms.GroupBox grpAjoutEtModif;
         private System.Windows.Forms.Button btnEnregistrerModifAbsence;
         private System.Windows.Forms.Button btnAnnulerModifAbsence;
-        private System.Windows.Forms.ComboBox cboMotifModifAbsence;
-        private System.Windows.Forms.DateTimePicker dateFinAbsenceModif;
-        private System.Windows.Forms.DateTimePicker dateDebutModifAbsence;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox cboMotifModifAbsence;
+        public System.Windows.Forms.DateTimePicker dateFinAbsenceModif;
+        public System.Windows.Forms.DateTimePicker dateDebutModifAbsence;
     }
 }

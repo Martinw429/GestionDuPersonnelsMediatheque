@@ -122,7 +122,7 @@ namespace GestionPersonnelsMediatheque.dal
 
         //Méthode pour supprimer un personnel de la base de données en utilisant une requête SQL de suppression.
 
-        public void SupprimerPersonnel(int idpersonnel)
+        public void SupprimerAbsence(int idpersonnel)
         {
             string reqSQL = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel";
             try
@@ -135,7 +135,7 @@ namespace GestionPersonnelsMediatheque.dal
             }
             catch (Exception ex)
             {
-                Log.Error("Erreur lors de la suppression du personnel : {Message}", ex.Message);
+                Log.Error("Erreur lors de la suppression de l'absence : {Message}", ex.Message);
                 MessageBox.Show("Une erreur est survenue lors de la suppression du personnel. Veuillez réessayer.");
             }
         }

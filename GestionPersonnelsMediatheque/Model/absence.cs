@@ -16,6 +16,9 @@ namespace GestionPersonnelsMediatheque
         public string dateFin { get; set; }
         public int  idMotif { get; set; }
 
+        /// <summary>
+        /// nom des différents motifs d'absence
+        /// </summary>
     public string nomMotif
         {
             get

@@ -1,4 +1,5 @@
 ﻿using GestionPersonnelsMediatheque.dal;
+using GestionPersonnelsMediatheque.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,29 +31,42 @@ namespace GestionPersonnelsMediatheque.View
         {
             //Bouton pour enregistrer les absences 
 
-            
+            if (dateDebutAjoutAbsence.Value != null || dateFinAjoutAbsence.Value != null || cboMotifAjoutAbsence.SelectedIndex != -1)
+            {
+                AjouterAbsence();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez remplir tous les champs.");
+                return;
+            }
+
+
+
         }
 
 
         // méthode pour gérer les ajouts seulement
         public void AjouterAbsence()
         {
-            if (dateDebutAjoutAbsence.AllowDrop|| dateFinAjoutAbsence.AllowDrop || cboMotifAjoutAbsence.SelectedIndex != -1)
+
+            if (dateDebutAjoutAbsence.Value != null || dateFinAjoutAbsence.Value !=null || cboMotifAjoutAbsence.SelectedIndex != -1)
             {
-                Absence nouvelleAbsence = new Absence();
+                Absence lesAbsence = new Absence
                 {
-                    dateDebutAjoutAbsence = 
-                    idMotif = Convert.ToInt32(cboService.SelectedValue)
+                    dateDebut = dateDebutAjoutAbsence.Value.ToString(),
+                    dateFin = dateFinAjoutAbsence.Value.ToString(),
+                    idMotif = Convert.ToInt32(cboMotifAjoutAbsence.SelectedValue)
                 };
-                //Ajouter le personnel dans la base de données
-                PersonnelAccess access = new PersonnelAccess();
-                access.AjouterPersonnel(lePersonnel);
-                //Ajouter dans le DataGridView
-                fmrGestionPersonnels gestionPersonnels = new fmrGestionPersonnels();
-                gestionPersonnels.Show();
+
+                AbsenceAccess access = new AbsenceAccess();
+                access.AjouterAbsence(lesAbsence);
+
+                fmrAbsence absence = new fmrAbsence(); 
+                absence.Show();
                 this.Hide();
-                // Afficher un message de confirmation indiquant que le personnel a été ajouté avec succès.
-                MessageBox.Show("Le personnel a été ajouté avec succès.");
+
+                MessageBox.Show("L’absence a été ajoutée avec succès.");
             }
             else
             {
@@ -61,3 +75,5 @@ namespace GestionPersonnelsMediatheque.View
             }
         }
     }
+    }
+

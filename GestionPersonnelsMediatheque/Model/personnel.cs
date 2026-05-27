@@ -43,6 +43,9 @@ namespace GestionPersonnelsMediatheque
         public string mail { get; set; }
         public int idservice { get; set; }
 
+        /// <summary>
+        /// nom des différents service
+        /// </summary>
         public string nomService
         {
             get

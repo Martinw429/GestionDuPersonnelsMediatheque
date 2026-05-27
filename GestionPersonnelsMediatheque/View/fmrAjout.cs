@@ -49,7 +49,7 @@ namespace GestionPersonnelsMediatheque.View
         // méthode pour gérer les ajouts seulement
         public void AjouterPersonnel()
         {
-            if (txtNom.Text != "" || txtPrenom.Text != "" || txtTel.Text != "" || txtMail.Text != "" || cboService.SelectedIndex != -1)
+            if (txtNom.Text != "" && txtPrenom.Text != "" && txtTel.Text != "" && txtMail.Text != "" && cboService.SelectedIndex != -1)
             {
                 Personnel lePersonnel = new Personnel
                 {
